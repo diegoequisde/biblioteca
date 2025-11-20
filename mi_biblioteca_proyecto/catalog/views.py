@@ -4,18 +4,12 @@ from rest_framework import viewsets
 from .models import Libro
 from .serializers import LibroSerializer
 
-from django.shortcuts import render
-
-
-# Create your views here.
-def index(request):
-    return HttpResponse("Página principal del catálogo funcionando")
-
-# Enlazar la vista Django que sirva el frontend
+# Enlazar la vista Django que sirva el frontend y "libros" para recorrerlo con for-each en el html
 def frontend(request):
-    return render(request, "catalog/index.html")
+    libros = Libro.objects.all()
+    return render(request, "catalog/index.html", {"libros": libros})
 
-
+# Creamos el ViewSet del modelo Libro
 class LibroViewSet(viewsets.ModelViewSet):
     queryset = Libro.objects.all()
     serializer_class = LibroSerializer

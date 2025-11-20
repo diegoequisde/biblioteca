@@ -2,13 +2,52 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+    <link rel="stylesheet" href="/static/catalog/styles.css">
 </head>
 <body>
 
     <h1>📚 Biblioteca</h1>
 
-    <div id="lista-libros"></div>
+    <div id="lista-libros">
+        <table id="tabla-libros">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Nº Páginas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for l in libros %}
+                <tr>
+                    <td>{{ l.titulo }}</td>
+                    <td>{{ l.autor_nombre }} {{ l.autor_apellidos }}</td>
+                    <td>{{ l.genero }}</td>
+                    <td>{{ l.paginas }}</td>
+                    <td>
+                        <button class="editar">Editar</button>
+                        <button class="eliminar">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="formulario">
+        <h2>Añadir Libro</h2>
+        <form id="form-libro">
+            <input type="text" id="titulo" placeholder="Título">
+            <input type="text" id="autor_nombre" placeholder="Nombre autor">
+            <input type="text" id="autor_apellidos" placeholder="Apellidos autor">
+            <input type="text" id="genero" placeholder="Género">
+            <input type="number" id="paginas" placeholder="Nº páginas">
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
 
     <script src="/static/catalog/app.js"></script>
 </body>
