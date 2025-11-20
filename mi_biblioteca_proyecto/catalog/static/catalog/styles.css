@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(-45deg,
+        rgba(142, 197, 252, 1.000) 0.000%,
+        rgba(141, 211, 255, 1.000) 25.000%,
+        rgba(161, 216, 255, 1.000) 50.000%, 
+        rgba(193, 210, 255, 1.000) 75.000%,
+        rgba(224, 195, 255, 1.000) 100.000%);
+    min-height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#form-libro {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 40%;
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#form-libro input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+#form-libro button {
+    width: 100%;
+    background: #1976D2;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#form-libro button:hover {
+    background: #145ca3;
+}
+
+
+#tabla-libros {
+    width: 100%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#tabla-libros th {
+    background: #1976D2;
+    color: white;
+    padding: 12px;
+    letter-spacing: 0.5px;
+}
+
+#tabla-libros td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternar colores */
+#tabla-libros tr:nth-child(even) {
+    background: #f0f3f7;
+}
+
+button.editar {
+    background: #FFA000;
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.eliminar {
+    background: #D32F2F;
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.editar:hover {
+    background: #cc8500;
+}
+
+button.eliminar:hover {
+    background: #b41f1f;
+}
