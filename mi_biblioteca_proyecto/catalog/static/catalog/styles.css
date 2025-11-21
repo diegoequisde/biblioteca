@@ -20,6 +20,105 @@ h1, h2 {
     color: #333;
 }
 
+/* Contenedor de filtros */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* separación entre elementos */
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Barra de búsqueda */
+.filtros input[type="text"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtros input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Contenedor de filtros */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Barra de búsqueda */
+.filtros input[type="text"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtros input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.filtros select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtros select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+/* 
+.filtro-rango {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filtro-rango input[type="range"] {
+    width: 200px;
+    accent-color: #007bff;
+} */
+
+.slider-container {
+    position: relative;
+    width: 250px;
+}
+
+.slider-container input[type="range"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    pointer-events: none; /* evita conflictos */
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto; /* sólo el “thumb” es interactivo */
+    height: 16px;
+    width: 16px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
 #form-libro {
     background: white;
     padding: 20px;

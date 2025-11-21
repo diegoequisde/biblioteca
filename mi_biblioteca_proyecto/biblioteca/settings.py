@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     
     'rest_framework',
+    'django_filters', 
 ]
 
 MIDDLEWARE = [

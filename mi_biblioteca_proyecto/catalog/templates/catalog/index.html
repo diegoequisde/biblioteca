@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="/static/catalog/styles.css">
 </head>
 <body>
+    <div class="filtros" >
+        <input type="text" id="searchInput" placeholder="Buscar autor o titulo">
+
+        <select id="generoSelect">
+            <option value="">Todos los géneros</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Ciencia ficción">Ciencia ficción</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedia">Comedia</option>
+        </select>
+
+       <div class="filtro-rango">
+            <label>Páginas: <span id="minPagValue">1</span> - <span id="maxPagValue">1000</span></label>
+            <!-- step="1" para que el rango no se quede en 100 de max -->
+            <input type="range" id="minPag" min="1" max="1500" value="1" step="1">
+            <input type="range" id="maxPag" min="1" max="1500" value="1500" step="1">
+        </div>
+
+        <button onclick="cargarLibros()">Filtrar</button>
+    </div>
 
     <h1>📚 Biblioteca</h1>
 
