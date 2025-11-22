@@ -17,9 +17,11 @@ def frontend(request):
 class LibroViewSet(ModelViewSet):
     queryset = Libro.objects.all()
     serializer_class = LibroSerializer
-    filter_backends = [SearchFilter, DjangoFilterBackend]
+    filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     search_fields = ['autor_nombre', 'autor_apellidos', 'titulo']
     filterset_fields = {
         'genero': ['exact'],
         'paginas': ['gte', 'lte'],
     }
+    ordering_fields = ['titulo', 'autor_nombre', 'autor_apellidos', 'genero', 'paginas']
+    ordering = ['titulo']  # orden por defecto

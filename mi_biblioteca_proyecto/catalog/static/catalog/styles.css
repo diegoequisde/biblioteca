@@ -24,77 +24,39 @@ h1, h2 {
 .filtros {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* separación entre elementos */
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-/* Barra de búsqueda */
-.filtros input[type="text"] {
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 200px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.filtros input[type="text"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-}
-
-/* Contenedor de filtros */
-.filtros {
-    display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
+
 
 /* Barra de búsqueda */
-.filtros input[type="text"] {
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 200px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.filtros input[type="text"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-}
-
+.filtros input[type="text"],
 .filtros select {
+    flex: 1 1 200px; /* crece y encoge, mínimo 200px */
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    background-color: #fff;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.filtros input[type="text"]:focus,
 .filtros select:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     outline: none;
 }
-/* 
+
 .filtro-rango {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    flex: 2;
+    text-align: center;
+    margin-bottom: 15px;
 }
-
-.filtro-rango input[type="range"] {
-    width: 200px;
-    accent-color: #007bff;
-} */
 
 .slider-container {
     position: relative;
@@ -182,8 +144,39 @@ h1, h2 {
     background: #f0f3f7;
 }
 
-button.editar {
+th.ordenable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 20px;
+}
+
+th.ordenable .flecha {
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+/* Opcional: rotar la flecha según dirección */
+th.ordenable.asc .flecha {
+    transform: rotate(0deg);
+}
+
+th.ordenable.desc .flecha {
+    transform: rotate(180deg);
+}
+
+button.filtrar {
     background: #FFA000;
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.editar {
+    background: #0099ff;
     border: none;
     padding: 6px 10px;
     color: white;
@@ -198,10 +191,16 @@ button.eliminar {
     color: white;
     border-radius: 4px;
     cursor: pointer;
+
+    flex: 0 0 120px; /* no crece ni encoge, ancho fijo */
+}
+
+button.filtrar:hover{
+    background: #cc8500;
 }
 
 button.editar:hover {
-    background: #cc8500;
+    background: #0081cc;
 }
 
 button.eliminar:hover {
