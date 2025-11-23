@@ -122,6 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Delegación podría optimizarse, pero esto funciona
         document.querySelectorAll(".editar").forEach(btn => {
             btn.onclick = async () => {
+                
+                
                 try {
                     const res = await fetch(`${API_URL}${btn.dataset.id}/`);
                     if (!res.ok) throw new Error("Error al cargar libro");
@@ -142,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.querySelectorAll(".eliminar").forEach(btn => {
             btn.onclick = async () => {
+                if (!confirm("¿Seguro que deseas eliminar este libro?")) return;
                 try {
                     const res = await fetch(`${API_URL}${btn.dataset.id}/`, {
                         method: "DELETE",

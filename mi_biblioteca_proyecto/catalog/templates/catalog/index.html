@@ -46,8 +46,8 @@
                     <td>{{ l.genero }}</td>
                     <td>{{ l.paginas }}</td>
                     <td>
-                        <button class="editar">Editar</button>
-                        <button class="eliminar">Eliminar</button>
+                        <button type="button" class="editar" data-id="${libro.id}">Editar</button>
+                        <button type="button" class="eliminar" data-id="${libro.id}">Eliminar</button>
                     </td>
                 </tr>
                 {% endfor %}
