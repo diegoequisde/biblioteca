@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const libros = await res.json();
             mostrarLibros(libros);
+            rellenarGeneros(libros);
         } catch (error) {
             console.error("Error:", error);
         }
@@ -116,6 +117,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         activarBotones();
+    }
+
+    function rellenarGeneros(libros) {
+        const selectGenero = document.getElementById("filtroGenero");
+
+        // Obtener géneros únicos
+        const generosUnicos = [...new Set(libros.map(l => l.genero))];
+
+        // Reset
+        selectGenero.innerHTML = "";
+
+        // Añadir todos los géneros únicos
+        generosUnicos.forEach(g => {
+            const option = document.createElement("option");
+            option.value = g;
+            option.textContent = g;
+            selectGenero.appendChild(option);
+        });
     }
 
     function activarBotones() {
@@ -164,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
             titulo: document.getElementById("titulo").value.trim(),
             autor_nombre: document.getElementById("autor_nombre").value.trim(),
             autor_apellidos: document.getElementById("autor_apellidos").value.trim(),
-            genero: document.getElementById("genero").value.trim(),
+            genero: document.getElementById("genero").value.trim() || "",
             paginas: parseInt(document.getElementById("paginas").value) || 0
         };
 
@@ -189,7 +208,8 @@ document.addEventListener("DOMContentLoaded", () => {
             form.reset();
             cargarLibros();
         } catch (error) {
-            console.error(error);
+            console.error("Error guardando libro:", error);
+            alert("No se pudo guardar el libro");
         }
     }
 });
